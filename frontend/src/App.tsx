@@ -20,6 +20,7 @@ import { TransactionsPage } from './pages/Transactions';
 import { AccountsPage } from './pages/Accounts';
 import { BudgetsPage } from './pages/Budgets';
 import { SavingsGoalsPage } from './pages/SavingsGoals';
+import { SubscriptionsPage } from './pages/Subscriptions';
 import { AnalyticsPage } from './pages/Analytics';
 import { FinancialToolsPage } from './pages/FinancialTools';
 import { AIAssistantPage } from './pages/AIAssistant';
@@ -152,6 +153,7 @@ const MainLayout: React.FC = () => {
                 />
               }
             />
+            <Route path="subscriptions" element={<SubscriptionsPage />} />
             <Route path="analytics" element={<AnalyticsPage />} />
             <Route path="tools" element={<FinancialToolsPage />} />
             <Route path="calculators" element={<Navigate to="/tools" replace />} />
