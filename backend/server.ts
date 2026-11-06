@@ -1,3 +1,10 @@
+import dns from 'dns';
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+} catch {
+  // Ignore DNS override errors in environments that restrict it
+}
+
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
