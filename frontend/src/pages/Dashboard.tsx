@@ -15,6 +15,7 @@ import {
   AlertCircle,
   Activity,
   Calendar,
+  Calculator,
 } from 'lucide-react';
 import {
   ResponsiveContainer,
@@ -208,6 +209,38 @@ export const Dashboard: React.FC<DashboardProps> = ({
         onOpenSetBudget={onOpenSetBudget}
         onOpenTransfer={onOpenTransfer}
       />
+
+      {/* Financial Tools & Intelligence Banner */}
+      <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-teal-950/40 via-slate-900 to-indigo-950/40 border border-teal-500/20 shadow-xl backdrop-blur-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-500 text-slate-950 flex items-center justify-center shrink-0 shadow-lg shadow-teal-500/20">
+            <Calculator className="w-5 h-5 font-bold" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h3 className="text-sm font-bold text-white tracking-tight">
+                Financial Planning & Calculators Hub
+              </h3>
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                New Feature
+              </span>
+            </div>
+            <p className="text-xs text-slate-400 mt-0.5">
+              Simulate loan EMI amortizations, forecast compound wealth (SIP), assess emergency runway, and split group bills.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2 w-full md:w-auto">
+          <NavLink
+            to="/tools"
+            className="w-full md:w-auto px-4 py-2 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-bold text-xs font-mono flex items-center justify-center gap-1.5 shadow-md shadow-teal-500/20 active:scale-95 transition-all"
+          >
+            <span>Launch Calculators</span>
+            <ChevronRight className="w-3.5 h-3.5" />
+          </NavLink>
+        </div>
+      </div>
 
       {/* 2. Charts Row: Income vs Expenses & Expenses by Category */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
