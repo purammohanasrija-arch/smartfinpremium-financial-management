@@ -24,6 +24,7 @@ import { SubscriptionsPage } from './pages/Subscriptions';
 import { AnalyticsPage } from './pages/Analytics';
 import { FinancialToolsPage } from './pages/FinancialTools';
 import { NetWorthPage } from './pages/NetWorth';
+import { FinancialTimeMachinePage } from './pages/FinancialTimeMachine';
 import { AIAssistantPage } from './pages/AIAssistant';
 import { ReportsPage } from './pages/Reports';
 import { NotificationsPage } from './pages/Notifications';
@@ -159,6 +160,8 @@ const MainLayout: React.FC = () => {
             <Route path="tools" element={<FinancialToolsPage />} />
             <Route path="calculators" element={<Navigate to="/tools" replace />} />
             <Route path="networth" element={<NetWorthPage />} />
+            <Route path="simulator" element={<FinancialTimeMachinePage />} />
+            <Route path="time-machine" element={<Navigate to="/simulator" replace />} />
             <Route path="assistant" element={<AIAssistantPage />} />
             <Route path="reports" element={<ReportsPage />} />
             <Route path="notifications" element={<NotificationsPage />} />
