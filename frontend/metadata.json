@@ -1,0 +1,6 @@
+{
+  "name": "SmartFin+ — Premium Financial Management",
+  "description": "Futuristic AI-powered financial management dashboard with smart budgets, savings goals, analytics, reports, and financial tracking for Mahi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

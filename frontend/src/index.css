@@ -1,0 +1,363 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+html.light .glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(45, 212, 191, 0.35);
+  box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.1);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* =========================================================================
+   LIGHT THEME OVERRIDES (Comprehensive, Clean & Polished)
+   ========================================================================= */
+html.light body,
+html:not(.dark) body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Light Surface Cards & Panels */
+html.light .bg-slate-900,
+html:not(.dark) .bg-slate-900,
+html.light .bg-slate-900\/80,
+html:not(.dark) .bg-slate-900\/80,
+html.light .bg-slate-900\/90,
+html:not(.dark) .bg-slate-900\/90,
+html.light .bg-slate-900\/95,
+html:not(.dark) .bg-slate-900\/95,
+html.light .bg-slate-900\/70,
+html:not(.dark) .bg-slate-900\/70,
+html.light .bg-slate-900\/60,
+html:not(.dark) .bg-slate-900\/60,
+html.light .bg-\[\#0c1220\]\/95,
+html:not(.dark) .bg-\[\#0c1220\]\/95,
+html.light .bg-\[\#0b0f19\],
+html:not(.dark) .bg-\[\#0b0f19\],
+html.light .bg-\[\#0b0f19\]\/90,
+html:not(.dark) .bg-\[\#0b0f19\]\/90 {
+  background-color: #ffffff !important;
+}
+
+
+html.light .bg-slate-950,
+html:not(.dark) .bg-slate-950,
+html.light .bg-slate-950\/80,
+html:not(.dark) .bg-slate-950\/80,
+html.light .bg-slate-950\/60,
+html:not(.dark) .bg-slate-950\/60,
+html.light .bg-slate-950\/50,
+html:not(.dark) .bg-slate-950\/50,
+html.light .bg-slate-950\/40,
+html:not(.dark) .bg-slate-950\/40 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .bg-slate-800,
+html:not(.dark) .bg-slate-800,
+html.light .bg-slate-800\/80,
+html:not(.dark) .bg-slate-800\/80,
+html.light .bg-slate-800\/90,
+html:not(.dark) .bg-slate-800\/90,
+html.light .bg-slate-800\/60,
+html:not(.dark) .bg-slate-800\/60,
+html.light .bg-slate-800\/50,
+html:not(.dark) .bg-slate-800\/50,
+html.light .bg-slate-800\/40,
+html:not(.dark) .bg-slate-800\/40,
+html.light .bg-slate-800\/30,
+html:not(.dark) .bg-slate-800\/30 {
+  background-color: #f1f5f9 !important;
+}
+
+/* Borders */
+html.light .border-slate-800,
+html:not(.dark) .border-slate-800,
+html.light .border-slate-800\/80,
+html:not(.dark) .border-slate-800\/80,
+html.light .border-slate-800\/60,
+html:not(.dark) .border-slate-800\/60,
+html.light .border-slate-700,
+html:not(.dark) .border-slate-700,
+html.light .border-slate-700\/80,
+html:not(.dark) .border-slate-700\/80,
+html.light .border-slate-700\/70,
+html:not(.dark) .border-slate-700\/70,
+html.light .border-slate-850,
+html:not(.dark) .border-slate-850 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Typography Hierarchy in Light Mode */
+html.light .text-white,
+html:not(.dark) .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-100,
+html:not(.dark) .text-slate-100 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-200,
+html:not(.dark) .text-slate-200 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-300,
+html:not(.dark) .text-slate-300 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-400,
+html:not(.dark) .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light .text-slate-500,
+html:not(.dark) .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Light Mode Input & Select styling */
+html.light input,
+html:not(.dark) input,
+html.light select,
+html:not(.dark) select,
+html.light textarea,
+html:not(.dark) textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+
+html.light input::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.light input:focus,
+html.light select:focus {
+  border-color: #0d9488 !important;
+  box-shadow: 0 0 0 1px #0d9488 !important;
+}
+
+/* Table Hover in Light Mode */
+html.light tr:hover {
+  background-color: #f8fafc !important;
+}
+
+/* Keep accent text vibrant in light mode */
+html.light .text-teal-400 {
+  color: #0f766e !important;
+}
+
+html.light .text-teal-300 {
+  color: #0d9488 !important;
+}
+
+html.light .text-emerald-400 {
+  color: #059669 !important;
+}
+
+html.light .text-rose-400 {
+  color: #e11d48 !important;
+}
+
+html.light .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+html.light .text-amber-400 {
+  color: #d97706 !important;
+}
+
+/* Accent buttons keep their rich dark contrast */
+html.light .text-slate-950 {
+  color: #020617 !important;
+}
+
+/* Recharts grid lines in light mode */
+html.light .recharts-cartesian-grid line {
+  stroke: #e2e8f0 !important;
+}
+
+html.light .recharts-text {
+  fill: #64748b !important;
+}
+
+html.light .recharts-default-legend .recharts-legend-item-text {
+  color: #334155 !important;
+}
+
+/* =========================================================================
+   FINTECH LANDING & ANIMATION UTILITIES
+   ========================================================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes float-card-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+@keyframes float-card-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-0.5deg);
+  }
+}
+
+@keyframes float-card-3 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes float-card-4 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float-1 {
+  animation: float-card-1 4.5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-card-2 5.2s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float-card-3 4.8s ease-in-out infinite;
+}
+
+.animate-float-4 {
+  animation: float-card-4 5.6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+
+.fintech-emerald-glow {
+  box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.28);
+}
+
+.fintech-mint-glow {
+  box-shadow: 0 0 35px -5px rgba(110, 231, 183, 0.22);
+}
+
+.fintech-gold-glow {
+  box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.25);
+}
+
+.fintech-gradient-text {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 45%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
