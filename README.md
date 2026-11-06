@@ -1,92 +1,95 @@
-# SmartFin+ – Premium Financial Management
+# SmartFin+ – Premium Wealth Intelligence & Financial Tracking
 
-> **Next-Generation AI-Powered Wealth Intelligence & Financial Tracking Platform**
+[![React 19](https://img.shields.io/badge/React-19.0-blue.svg?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.3-646CFF.svg?logo=vite)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com/)
+[![Express.js](https://img.shields.io/badge/Express-4.21-lightgrey.svg?logo=express)](https://expressjs.com/)
+[![MongoDB Atlas](https://img.shields.io/badge/MongoDB-Atlas_Cloud-green.svg?logo=mongodb)](https://www.mongodb.com/cloud/atlas)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> **Next-Generation Personal Wealth Intelligence, Multi-Asset Net Worth Tracking & AI Decision Simulation Platform**
 
 ---
 
-## 🏛️ Project Architecture (Frontend & Backend Separated)
+## 🌟 What's Inside SmartFin+?
 
-The project is structured into two completely independent, decoupled services:
+* ⏳ **AI Financial Time Machine & What-If Simulator (`/simulator`)**: Simulate real-life decisions (car purchases, career breaks, habit changes, salary raises) and see their compounding impact 5 to 25 years into the future.
+* 🏛️ **Net Worth & Balance Sheet Hub (`/networth`)**: Track true equity (`Gross Assets − Liabilities`), debt leverage ratios, asset allocation donuts, and financial independence milestones.
+* 🧾 **AI Smart Receipt & Bill OCR Scanner (`/scanner`)**: Drag-and-drop receipt images and invoices for instant scanning, itemized breakdown extraction, and 1-click ledger logging.
+* 💳 **Subscriptions & Recurring Bills Hub (`/subscriptions`)**: Audit recurring SaaS, streaming, and utility run-rates with 1-click pause toggles, due-soon alerts, and waste optimization insights.
+* 🧮 **Financial Tools & Calculators Hub (`/tools`)**: Loan EMI & prepayment optimizer, SIP compound wealth forecaster, emergency runway sentinel, and group bill splitter with WhatsApp export.
+* 📊 **Live Ledger & Category Budgets**: Comprehensive transaction ledger with spending anomaly detection, multi-currency switcher (₹, $, €, £, د.إ), and category thresholds.
+* 🍃 **MongoDB Atlas Cloud Synchronized**: Native MERN stack backend with live cluster connectivity, collection counters, and an embedded local document engine fallback for offline use.
+
+---
+
+## 🏛️ Project Structure
 
 ```
-smartfin+-—-premium-financial-management (1)/
-├── frontend/                  # React 19 + Vite + Tailwind CSS (Port 5173)
-│   ├── src/                   # Components, Pages, Context, Hooks
-│   │   ├── pages/             # LandingPage, Dashboard, Transactions, Budgets, etc.
-│   │   ├── components/        # LoginView, Sidebar, Topbar, Modals
-│   │   ├── context/           # FinanceContext.tsx
-│   │   └── services/          # api.ts (Proxies to backend)
-│   ├── vite.config.ts         # Vite dev server + proxy to http://localhost:5000
-│   └── package.json           # Frontend dependencies
+smartfinpremium-financial-management/
+├── frontend/                  # React 19 + Vite + Tailwind CSS SPA
+│   ├── src/
+│   │   ├── pages/             # Time Machine, Net Worth, Subscriptions, Tools, Dashboard, etc.
+│   │   ├── components/        # Modals, Sidebar, Topbar, StatCards
+│   │   ├── context/           # FinanceContext.tsx (Global State & Live Sync)
+│   │   └── services/          # api.ts (Backend communication)
+│   ├── vite.config.ts         # Vite server + API proxy
+│   └── vercel.json            # Vercel deployment rewrites
 │
-└── backend/                   # Node.js + Express.js + MongoDB Engine (Port 5000)
-    ├── server.ts              # Standalone Express Server with CORS
-    ├── routes/                # API Endpoints (/health, /auth, /transactions, etc.)
-    ├── db/                    # MongoDB Atlas & Embedded Document Engine
-    ├── data/                  # Default ledger seed & demo records
-    └── package.json           # Backend dependencies
+├── backend/                   # Node.js + Express + MongoDB Atlas
+│   ├── server.ts              # Express API server with CORS
+│   ├── routes/api.ts          # REST endpoints (/health, /transactions, /budgets, /db)
+│   ├── db/mongo.ts            # MongoDB Atlas connection manager & seeder
+│   └── tsconfig.json          # TypeScript server config
+│
+├── render.yaml                # Render cloud deployment blueprint
+├── vercel.json                # Vercel root deployment configuration
+├── PROJECT_DOCUMENTATION.md   # Complete technical & architecture manual
+└── package.json               # Root monorepo scripts
 ```
 
 ---
 
-## 🚀 How to Run Locally
+## 🚀 Quick Start (Local Development)
 
-### Fast 1-Command Startup (Runs Frontend & Backend Together)
+### 1-Command Startup
 ```bash
+# Starts both Backend (Port 5000) and Frontend (Port 5173) concurrently:
 npm run dev
 ```
 
----
-
-### Or Run in Decoupled Terminals
-
-#### 1. Start the Backend API Server (Port 5000)
-```bash
-cd backend
-npm run dev
-```
-- **Backend URL**: [http://localhost:5000](http://localhost:5000)
-- **API Health Endpoint**: [http://localhost:5000/api/health](http://localhost:5000/api/health)
-
-#### 2. Start the Frontend Application (Port 5173)
-```bash
-cd frontend
-npm run dev
-```
-- **Local Application Link**: **[http://localhost:5173](http://localhost:5173)**
+Open your browser at **[http://localhost:5173](http://localhost:5173)**.
 
 ---
 
-## 🍃 MongoDB Atlas Cloud Database Configuration
+## ☁️ Deployment Guide
 
-SmartFin+ supports both **MongoDB Atlas Cloud** and an embedded local document engine fallback.
+### 1. Backend on Render
+1. Go to **[dashboard.render.com](https://dashboard.render.com)** and create a new **Web Service**.
+2. Link repository: `purammohanasrija-arch/smartfinpremium-financial-management`.
+3. Set **Root Directory** to `backend`, **Build Command** to `npm install`, **Start Command** to `npm start`.
+4. Add Environment Variables:
+   * `MONGODB_URI` = `mongodb+srv://admin:Srija212006@cluster0.r1kjs29.mongodb.net/smartfin?retryWrites=true&w=majority`
+   * `PORT` = `10000`
+5. Deploy and copy your live backend URL (e.g. `https://smartfin-backend.onrender.com`).
 
-### Option A: Live UI Configuration (Zero Downtime)
-1. Launch the app and visit **Settings** (`/settings`).
-2. Scroll to **MongoDB Atlas Cloud Architecture**.
-3. Paste your Atlas URI string:
-   `mongodb+srv://<username>:<password>@cluster0.mongodb.net/smartfin?retryWrites=true&w=majority`
-4. Click **Test Connection** (checks latency & TLS handshake) &rarr; **Connect to Cluster**.
-5. Click **Sync All Data to Atlas Cluster** to push local accounts, transactions, budgets, and goals to Atlas.
-
-### Option B: Environment Variable (.env)
-Add your MongoDB Atlas URI to `.env` or `backend/.env`:
-```env
-MONGODB_URI="mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/smartfin?retryWrites=true&w=majority"
-```
-
-> **Note:** Ensure your Atlas cluster allows Network Access from `0.0.0.0/0` (anywhere). If `MONGODB_URI` is empty, the app automatically falls back to its embedded local engine.
+### 2. Frontend on Vercel
+1. Go to **[vercel.com](https://vercel.com)** &rarr; **Add New Project**.
+2. Import repository: `purammohanasrija-arch/smartfinpremium-financial-management`.
+3. Set **Root Directory** to `frontend`, **Preset** to `Vite`.
+4. Add Environment Variable:
+   * `VITE_API_URL` = `https://smartfin-backend.onrender.com`
+5. Click **Deploy**!
 
 ---
 
-## 🔗 Quick Navigation & Flow
+## 📖 Complete Technical Manual
 
-1. **Cover Page**: `http://localhost:5173/`
-   - Hero section with live 3D preview and 4 floating metric cards
-   - Features, How It Works, Interactive Wealth Planner, About Us, Contact
-2. **Registration**: `http://localhost:5173/register`
-   - Passwordless email OTP verification or 1-click Google authentication
-3. **Login**: `http://localhost:5173/login`
-   - Quick login, OTP, or instant demo entry
-4. **Financial Dashboard**: `http://localhost:5173/dashboard`
-   - Real-time cashflow analytics, budgets, savings goals, multi-currency switcher, AI assistant
+For the complete architectural diagrams, API endpoint specifications, MongoDB schemas, and security details, see:
+👉 **[PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md)**
+
+---
+
+## 📄 License
+Released under the [MIT License](./LICENSE).
