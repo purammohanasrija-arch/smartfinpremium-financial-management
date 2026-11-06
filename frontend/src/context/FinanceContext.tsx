@@ -11,6 +11,8 @@ import {
   INITIAL_SAVINGS_GOALS,
   INITIAL_NOTIFICATIONS,
   INITIAL_USER_PROFILE,
+  getSafeAvatarUrl,
+  DEFAULT_AVATAR_FALLBACK,
   SIX_MONTH_HISTORY,
   CATEGORIES,
   SmtpConfig,
@@ -165,7 +167,17 @@ export const FinanceProvider: React.FC<{ children: ReactNode }> = ({ children })
   // User Profile
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.USER);
-    return saved ? JSON.parse(saved) : INITIAL_USER_PROFILE;
+    if (!saved) return INITIAL_USER_PROFILE;
+    try {
+      const parsed = JSON.parse(saved);
+      return {
+        ...INITIAL_USER_PROFILE,
+        ...parsed,
+        avatar: getSafeAvatarUrl(parsed.avatar),
+      };
+    } catch {
+      return INITIAL_USER_PROFILE;
+    }
   });
 
   // Authentication & Session state
@@ -249,7 +261,7 @@ export const FinanceProvider: React.FC<{ children: ReactNode }> = ({ children })
       if (bdgts && Array.isArray(bdgts)) setBudgets(bdgts);
       if (gls && Array.isArray(gls)) setSavingsGoals(gls);
       if (notifs && Array.isArray(notifs)) setNotifications(notifs);
-      if (usr && usr.name) setUser(usr);
+      if (usr && usr.name) setUser({ ...usr, avatar: getSafeAvatarUrl(usr.avatar) });
     } catch (err) {
       console.warn('[MERN Client] Background sync warning:', err);
     }

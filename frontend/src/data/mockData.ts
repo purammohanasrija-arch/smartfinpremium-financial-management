@@ -340,11 +340,21 @@ export const SIX_MONTH_HISTORY = [
   { month: 'Oct', income: 4500, expenses: 2980, savings: 1520 },
 ];
 
+export const DEFAULT_AVATAR_FALLBACK =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2314b8a6'/%3E%3Cstop offset='100%25' stop-color='%230f766e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='50' fill='url(%23g)'/%3E%3Ctext x='50' y='63' font-size='40' font-weight='bold' fill='%23ffffff' font-family='sans-serif' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E";
+
+export function getSafeAvatarUrl(avatar?: string): string {
+  if (!avatar || avatar.startsWith('/src/')) {
+    return '/avatar.jpg';
+  }
+  return avatar;
+}
+
 export const INITIAL_USER_PROFILE = {
   name: 'Mahi',
   title: 'Premium User',
   email: 'mahi.sharma@smartfin.io',
-  avatar: '/src/assets/images/user_avatar_mahi_1792342370968.jpg',
+  avatar: '/avatar.jpg',
   currency: 'INR',
   currencySymbol: '₹',
   conversionMode: 'symbol_only' as 'symbol_only' | 'convert_fx',

@@ -1,3 +1,4 @@
+import { DEFAULT_AVATAR_FALLBACK, getSafeAvatarUrl } from '../data/mockData';
 import React, { useState } from 'react';
 import {
   User,
@@ -140,10 +141,13 @@ export const SettingsPage: React.FC = () => {
         <div className="flex items-center gap-4 pb-4 border-b border-slate-800">
           <div className="relative">
             <img
-              src={user.avatar}
+              src={getSafeAvatarUrl(user.avatar)}
               alt={user.name}
               referrerPolicy="no-referrer"
               className="w-16 h-16 rounded-2xl object-cover border-2 border-teal-500/40 shadow-md"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = DEFAULT_AVATAR_FALLBACK;
+              }}
             />
             <div className="absolute -bottom-1 -right-1 p-1 bg-teal-500 rounded-full text-slate-950">
               <Crown className="w-3.5 h-3.5" />

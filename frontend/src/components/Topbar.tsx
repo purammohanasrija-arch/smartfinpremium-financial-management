@@ -1,3 +1,4 @@
+import { DEFAULT_AVATAR_FALLBACK, getSafeAvatarUrl } from '../data/mockData';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
@@ -196,10 +197,13 @@ export const Topbar: React.FC<TopbarProps> = ({
               className="flex items-center gap-2.5 p-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all text-left"
             >
               <img
-                src={user.avatar}
+                src={getSafeAvatarUrl(user.avatar)}
                 alt={user.name}
                 referrerPolicy="no-referrer"
                 className="w-7 h-7 rounded-full object-cover border border-teal-400/40"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = DEFAULT_AVATAR_FALLBACK;
+                }}
               />
               <div className="hidden md:flex flex-col">
                 <span className="text-xs font-semibold text-slate-200 leading-tight">

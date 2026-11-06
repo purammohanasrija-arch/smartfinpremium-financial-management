@@ -344,7 +344,7 @@ export const INITIAL_USER_PROFILE = {
   name: 'Mahi',
   title: 'Premium User',
   email: 'mahi.sharma@smartfin.io',
-  avatar: '/src/assets/images/user_avatar_mahi_1792342370968.jpg',
+  avatar: '/avatar.jpg',
   currency: 'INR',
   currencySymbol: '₹',
   conversionMode: 'symbol_only' as 'symbol_only' | 'convert_fx',

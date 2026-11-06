@@ -1,3 +1,4 @@
+import { DEFAULT_AVATAR_FALLBACK, getSafeAvatarUrl } from '../data/mockData';
 import React, { useState, useRef, useEffect } from 'react';
 import {
   Bot,
@@ -232,10 +233,13 @@ You are in good standing with an overall Financial Health Score of **82/100**!`;
               {/* Avatar */}
               {isUser ? (
                 <img
-                  src={user.avatar}
+                  src={getSafeAvatarUrl(user.avatar)}
                   alt={user.name}
                   referrerPolicy="no-referrer"
                   className="w-8 h-8 rounded-full object-cover border border-teal-400/50 shrink-0"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = DEFAULT_AVATAR_FALLBACK;
+                  }}
                 />
               ) : (
                 <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-teal-500 to-indigo-500 p-[1px] shrink-0">

@@ -25,6 +25,7 @@ import {
   Globe,
 } from 'lucide-react';
 import { useFinance } from '../context/FinanceContext';
+import { DEFAULT_AVATAR_FALLBACK, getSafeAvatarUrl } from '../data/mockData';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -185,13 +186,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             >
               <div className="relative">
                 <img
-                  src={user.avatar}
+                  src={getSafeAvatarUrl(user.avatar)}
                   alt={user.name}
                   referrerPolicy="no-referrer"
                   className="w-10 h-10 rounded-full object-cover border border-teal-500/40 shadow-sm"
                   onError={(e) => {
-                    // Fallback to avatar placeholder
-                    (e.target as HTMLElement).style.display = 'none';
+                    (e.currentTarget as HTMLImageElement).src = DEFAULT_AVATAR_FALLBACK;
                   }}
                 />
                 <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full absolute bottom-0 right-0 ring-2 ring-slate-900" />
