@@ -14,15 +14,22 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     headers,
   });
 
+  const contentType = response.headers.get('content-type') || '';
   if (!response.ok) {
     let errorMsg = `HTTP Error ${response.status}`;
-    try {
-      const data = await response.json();
-      if (data.error || data.message) errorMsg = data.error || data.message;
-    } catch {
-      // Ignore parse failure
+    if (contentType.includes('application/json')) {
+      try {
+        const data = await response.json();
+        if (data.error || data.message) errorMsg = data.error || data.message;
+      } catch {
+        // Ignore parse failure
+      }
     }
     throw new Error(errorMsg);
+  }
+
+  if (!contentType.includes('application/json')) {
+    throw new Error(`Expected JSON from API but received ${contentType || 'HTML'}. Make sure VITE_API_URL is configured.`);
   }
 
   return response.json();
