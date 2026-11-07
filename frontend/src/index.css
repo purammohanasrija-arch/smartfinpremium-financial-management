@@ -2,6 +2,206 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* =========================================================================
+   DYNAMIC COLOR ACCENT PALETTES (Multi-Palette Switcher System)
+   ========================================================================= */
+
+/* 1. Cyber Emerald & Mint Teal (Classic SmartFin) */
+:root,
+html[data-palette="emerald"],
+.palette-emerald {
+  --palette-name: 'Cyber Emerald';
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+  --color-teal-950: #042f2e;
+
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-emerald-900: #064e3b;
+  --color-emerald-950: #022c22;
+
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+
+  --palette-primary: #14b8a6;
+  --palette-secondary: #10b981;
+  --palette-accent: #06b6d4;
+  --palette-glow: rgba(20, 184, 166, 0.35);
+}
+
+/* 2. Electric Violet & Indigo (Modern Stripe / Linear Aesthetic) */
+html[data-palette="violet"],
+.palette-violet {
+  --palette-name: 'Electric Violet';
+  --color-teal-50: #f5f3ff;
+  --color-teal-100: #ede9fe;
+  --color-teal-200: #ddd6fe;
+  --color-teal-300: #c4b5fd;
+  --color-teal-400: #a78bfa;
+  --color-teal-500: #8b5cf6;
+  --color-teal-600: #7c3aed;
+  --color-teal-700: #6d28d9;
+  --color-teal-800: #5b21b6;
+  --color-teal-900: #4c1d95;
+  --color-teal-950: #2e1065;
+
+  --color-emerald-50: #fdf4ff;
+  --color-emerald-100: #fae8ff;
+  --color-emerald-200: #f5d0fe;
+  --color-emerald-300: #f0abfc;
+  --color-emerald-400: #e879f9;
+  --color-emerald-500: #d946ef;
+  --color-emerald-600: #c026d3;
+  --color-emerald-700: #a21caf;
+  --color-emerald-800: #86198f;
+  --color-emerald-900: #701a75;
+  --color-emerald-950: #4a044e;
+
+  --color-cyan-300: #a5b4fc;
+  --color-cyan-400: #818cf8;
+  --color-cyan-500: #6366f1;
+  --color-cyan-600: #4f46e5;
+
+  --palette-primary: #8b5cf6;
+  --palette-secondary: #d946ef;
+  --palette-accent: #6366f1;
+  --palette-glow: rgba(139, 92, 246, 0.4);
+}
+
+/* 3. Royal Sapphire & Ocean Blue (High-Trust Institutional Banking) */
+html[data-palette="sapphire"],
+.palette-sapphire {
+  --palette-name: 'Royal Sapphire';
+  --color-teal-50: #eff6ff;
+  --color-teal-100: #dbeafe;
+  --color-teal-200: #bfdbfe;
+  --color-teal-300: #93c5fd;
+  --color-teal-400: #60a5fa;
+  --color-teal-500: #3b82f6;
+  --color-teal-600: #2563eb;
+  --color-teal-700: #1d4ed8;
+  --color-teal-800: #1e40af;
+  --color-teal-900: #1e3a8a;
+  --color-teal-950: #172554;
+
+  --color-emerald-50: #f0f9ff;
+  --color-emerald-100: #e0f2fe;
+  --color-emerald-200: #bae6fd;
+  --color-emerald-300: #7dd3fc;
+  --color-emerald-400: #38bdf8;
+  --color-emerald-500: #0ea5e9;
+  --color-emerald-600: #0284c7;
+  --color-emerald-700: #0369a1;
+  --color-emerald-800: #075985;
+  --color-emerald-900: #0c4a6e;
+  --color-emerald-950: #082f49;
+
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+
+  --palette-primary: #3b82f6;
+  --palette-secondary: #0ea5e9;
+  --palette-accent: #06b6d4;
+  --palette-glow: rgba(59, 130, 246, 0.4);
+}
+
+/* 4. Champagne Gold & Warm Amber (Ultra-Wealth & Private Banking) */
+html[data-palette="gold"],
+.palette-gold {
+  --palette-name: 'Champagne Gold';
+  --color-teal-50: #fffbeb;
+  --color-teal-100: #fef3c7;
+  --color-teal-200: #fde68a;
+  --color-teal-300: #fcd34d;
+  --color-teal-400: #fbbf24;
+  --color-teal-500: #f59e0b;
+  --color-teal-600: #d97706;
+  --color-teal-700: #b45309;
+  --color-teal-800: #92400e;
+  --color-teal-900: #78350f;
+  --color-teal-950: #451a03;
+
+  --color-emerald-50: #fefce8;
+  --color-emerald-100: #fef9c3;
+  --color-emerald-200: #fef08a;
+  --color-emerald-300: #fde047;
+  --color-emerald-400: #facc15;
+  --color-emerald-500: #eab308;
+  --color-emerald-600: #ca8a04;
+  --color-emerald-700: #a16207;
+  --color-emerald-800: #854d0e;
+  --color-emerald-900: #713f12;
+  --color-emerald-950: #422006;
+
+  --color-cyan-300: #fde047;
+  --color-cyan-400: #facc15;
+  --color-cyan-500: #eab308;
+  --color-cyan-600: #ca8a04;
+
+  --palette-primary: #f59e0b;
+  --palette-secondary: #eab308;
+  --palette-accent: #d97706;
+  --palette-glow: rgba(245, 158, 11, 0.4);
+}
+
+/* 5. Sunset Coral & Crimson Rose (Dynamic High-Energy Aesthetic) */
+html[data-palette="rose"],
+.palette-rose {
+  --palette-name: 'Sunset Coral';
+  --color-teal-50: #fff1f2;
+  --color-teal-100: #ffe4e6;
+  --color-teal-200: #fecdd3;
+  --color-teal-300: #fda4af;
+  --color-teal-400: #fb7185;
+  --color-teal-500: #f43f5e;
+  --color-teal-600: #e11d48;
+  --color-teal-700: #be123c;
+  --color-teal-800: #9f1239;
+  --color-teal-900: #881337;
+  --color-teal-950: #4c0519;
+
+  --color-emerald-50: #fff7ed;
+  --color-emerald-100: #ffedd5;
+  --color-emerald-200: #fed7aa;
+  --color-emerald-300: #fdba74;
+  --color-emerald-400: #fb923c;
+  --color-emerald-500: #f97316;
+  --color-emerald-600: #ea580c;
+  --color-emerald-700: #c2410c;
+  --color-emerald-800: #9a3412;
+  --color-emerald-900: #7c2d12;
+  --color-emerald-950: #431407;
+
+  --color-cyan-300: #f472b6;
+  --color-cyan-400: #ec4899;
+  --color-cyan-500: #db2777;
+  --color-cyan-600: #be185d;
+
+  --palette-primary: #f43f5e;
+  --palette-secondary: #f97316;
+  --palette-accent: #db2777;
+  --palette-glow: rgba(244, 63, 94, 0.4);
+}
+
 @layer base {
   :root {
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
@@ -12,6 +212,11 @@
     font-family: var(--font-sans);
     overflow-x: hidden;
     transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  ::selection {
+    background-color: var(--color-teal-500, #14b8a6);
+    color: #ffffff;
   }
 }
 
@@ -55,8 +260,8 @@ html.light .glass-card {
 
 .glass-card-hover:hover {
   transform: translateY(-2px);
-  border-color: rgba(45, 212, 191, 0.35);
-  box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.1);
+  border-color: var(--color-teal-400, rgba(45, 212, 191, 0.35));
+  box-shadow: 0 10px 25px -5px var(--palette-glow, rgba(20, 184, 166, 0.1));
 }
 
 /* Custom subtle scrollbar */
@@ -187,7 +392,7 @@ html.light .text-teal-300,
 html.light .text-teal-400,
 html:not(.dark) .text-teal-300,
 html:not(.dark) .text-teal-400 {
-  color: #0f766e !important;
+  color: var(--color-teal-700) !important;
   font-weight: 600 !important;
 }
 
@@ -195,7 +400,7 @@ html.light .text-emerald-300,
 html.light .text-emerald-400,
 html:not(.dark) .text-emerald-300,
 html:not(.dark) .text-emerald-400 {
-  color: #047857 !important;
+  color: var(--color-emerald-700) !important;
   font-weight: 600 !important;
 }
 
@@ -242,14 +447,14 @@ html:not(.dark) .text-rose-400 {
 /* High-Contrast Badge and Pill Backgrounds in Light Mode */
 html.light [class*="bg-teal-500/"],
 html:not(.dark) [class*="bg-teal-500/"] {
-  background-color: #ccfbf1 !important;
-  border-color: #5eead4 !important;
+  background-color: var(--color-teal-100) !important;
+  border-color: var(--color-teal-300) !important;
 }
 
 html.light [class*="bg-emerald-500/"],
 html:not(.dark) [class*="bg-emerald-500/"] {
-  background-color: #d1fae5 !important;
-  border-color: #6ee7b7 !important;
+  background-color: var(--color-emerald-100) !important;
+  border-color: var(--color-emerald-300) !important;
 }
 
 html.light [class*="bg-indigo-500/"],
@@ -419,20 +624,46 @@ html {
 }
 
 .fintech-emerald-glow {
-  box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.28);
+  box-shadow: 0 0 35px -5px var(--palette-glow, rgba(16, 185, 129, 0.28));
 }
 
 .fintech-mint-glow {
-  box-shadow: 0 0 35px -5px rgba(110, 231, 183, 0.22);
+  box-shadow: 0 0 35px -5px var(--palette-glow, rgba(110, 231, 183, 0.22));
 }
 
 .fintech-gold-glow {
-  box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 0 30px -5px var(--palette-glow, rgba(245, 158, 11, 0.25));
 }
 
 .fintech-gradient-text {
-  background: linear-gradient(135deg, #10b981 0%, #34d399 45%, #fbbf24 100%);
+  background: linear-gradient(135deg, var(--color-teal-400, #10b981) 0%, var(--color-emerald-400, #34d399) 45%, var(--color-cyan-400, #fbbf24) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================================
+   RECHARTS & SVG DYNAMIC PALETTE BINDINGS
+   ========================================================================= */
+html[data-palette] stop[stop-color="#14b8a6"],
+html[data-palette] stop[stop-color="#10b981"],
+html[data-palette] stop[stop-color="#0d9488"] {
+  stop-color: var(--color-teal-500) !important;
+}
+
+html[data-palette] stop[stop-color="#06b6d4"] {
+  stop-color: var(--color-cyan-500) !important;
+}
+
+html[data-palette] path[stroke="#14b8a6"],
+html[data-palette] circle[stroke="#14b8a6"],
+html[data-palette] path[stroke="#10b981"],
+html[data-palette] path[stroke="#0d9488"] {
+  stroke: var(--color-teal-500) !important;
+}
+
+html[data-palette] path[fill="#14b8a6"],
+html[data-palette] path[fill="#10b981"],
+html[data-palette] path[fill="#0d9488"] {
+  fill: var(--color-teal-500) !important;
 }
 

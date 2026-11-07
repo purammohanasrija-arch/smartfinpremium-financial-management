@@ -37,6 +37,7 @@ import {
 } from 'lucide-react';
 import { useFinance } from '../context/FinanceContext';
 import { ThemeToggle } from '../components/ThemeToggle';
+import { PaletteSwitcher } from '../components/PaletteSwitcher';
 import { LegalModal } from '../components/modals/LegalModal';
 
 export const LandingPage: React.FC = () => {
@@ -195,6 +196,7 @@ export const LandingPage: React.FC = () => {
 
           {/* Desktop Right Action Area */}
           <div className="hidden md:flex items-center gap-3">
+            <PaletteSwitcher />
             <ThemeToggle />
 
             {isAuthenticated ? (
@@ -237,6 +239,7 @@ export const LandingPage: React.FC = () => {
 
           {/* Mobile Hamburger Button */}
           <div className="flex items-center gap-2 md:hidden">
+            <PaletteSwitcher />
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

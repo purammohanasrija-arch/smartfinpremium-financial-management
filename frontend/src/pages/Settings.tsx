@@ -32,9 +32,11 @@ import {
   FileSpreadsheet,
   Download,
   Coins,
+  Palette,
 } from 'lucide-react';
 import { useFinance } from '../context/FinanceContext';
 import { ThemeToggle } from '../components/ThemeToggle';
+import { PaletteSwitcher } from '../components/PaletteSwitcher';
 import { ExportDataSection } from '../components/ExportDataSection';
 import { CurrencySwitcherSection } from '../components/CurrencySwitcherSection';
 
@@ -44,6 +46,8 @@ export const SettingsPage: React.FC = () => {
     updateUser,
     theme,
     toggleTheme,
+    palette,
+    activePaletteInfo,
     currencySymbol,
     setCurrency,
     resetDemoData,
@@ -682,22 +686,45 @@ export const SettingsPage: React.FC = () => {
       <CurrencySwitcherSection />
 
       {/* Theme & Display Options */}
-      <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-xl backdrop-blur-xl space-y-4">
-        <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-          <Sliders className="w-4 h-4 text-indigo-400" /> Interface & Theme
-        </h3>
-        <p className="text-xs text-slate-400">
-          Customize display mode between dark futuristic glassmorphism and crisp light mode.
-        </p>
-
-        <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+      <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-xl backdrop-blur-xl space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
-            <span className="text-xs font-semibold text-white block">Theme Palette</span>
-            <span className="text-[11px] text-slate-500">
-              Current mode: <strong className="text-teal-400 uppercase">{theme}</strong>
+            <h3 className="text-sm font-semibold text-white flex items-center gap-2">
+              <Sliders className="w-4 h-4 text-indigo-400" /> Interface & Theme Settings
+            </h3>
+            <p className="text-xs text-slate-400 mt-1">
+              Customize display mode between dark futuristic glassmorphism and crisp light mode, plus live color accents.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="text-right hidden sm:block">
+              <span className="text-xs font-semibold text-white block">Theme Mode</span>
+              <span className="text-[11px] text-slate-500 uppercase">{theme}</span>
+            </div>
+            <ThemeToggle />
+          </div>
+        </div>
+
+        {/* Color Palette Switcher Studio */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                <Palette className="w-3.5 h-3.5 text-teal-400" /> Accent Color Palette Studio
+              </span>
+              <p className="text-[11px] text-slate-400 mt-0.5">
+                Select your preferred accent theme to dynamically transform the entire UI, charts, and buttons in real time.
+              </p>
+            </div>
+            <span
+              className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg text-white shadow-sm flex items-center gap-1.5"
+              style={{ backgroundColor: activePaletteInfo.primary }}
+            >
+              Active: {activePaletteInfo.name}
             </span>
           </div>
-          <ThemeToggle />
+
+          <PaletteSwitcher variant="grid" />
         </div>
       </div>
 

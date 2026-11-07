@@ -12,6 +12,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script>
+      (function() {
+        try {
+          var savedPalette = localStorage.getItem('smartfin_palette') || 'violet';
+          document.documentElement.setAttribute('data-palette', savedPalette);
+          document.documentElement.classList.add('palette-' + savedPalette);
+          var savedTheme = localStorage.getItem('smartfin_theme') || 'dark';
+          document.documentElement.classList.add(savedTheme);
+          document.documentElement.classList.remove(savedTheme === 'dark' ? 'light' : 'dark');
+        } catch(e) {}
+      })();
+    </script>
   </head>
   <body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white min-h-screen">
     <div id="root"></div>

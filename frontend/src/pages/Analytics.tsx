@@ -38,6 +38,7 @@ export const AnalyticsPage: React.FC = () => {
     currencySymbol,
     formatCurrency,
     historyChartData,
+    activePaletteInfo,
   } = useFinance();
 
   const [dateRange, setDateRange] = useState<'3M' | '6M' | '1Y'>('6M');
@@ -179,7 +180,7 @@ export const AnalyticsPage: React.FC = () => {
                 <Legend iconType="circle" wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
                 <Line type="monotone" dataKey="income" name="Income" stroke="#10b981" strokeWidth={2.5} dot={{ r: 3 }} />
                 <Line type="monotone" dataKey="expenses" name="Expenses" stroke="#f43f5e" strokeWidth={2.5} dot={{ r: 3 }} />
-                <Line type="monotone" dataKey="savings" name="Net Savings" stroke="#14b8a6" strokeWidth={2.5} strokeDasharray="4 4" dot={{ r: 3 }} />
+                <Line type="monotone" dataKey="savings" name="Net Savings" stroke={activePaletteInfo.primary} strokeWidth={2.5} strokeDasharray="4 4" dot={{ r: 3 }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -219,7 +220,7 @@ export const AnalyticsPage: React.FC = () => {
                     return null;
                   }}
                 />
-                <Bar dataKey="expenses" name="Weekly Expenses" fill="#06b6d4" radius={[6, 6, 0, 0]} maxBarSize={40} />
+                <Bar dataKey="expenses" name="Weekly Expenses" fill={activePaletteInfo.secondary} radius={[6, 6, 0, 0]} maxBarSize={40} />
               </BarChart>
             </ResponsiveContainer>
           </div>

@@ -125,6 +125,7 @@ export const FinancialTimeMachinePage: React.FC = () => {
     totalBalance,
     currencySymbol,
     formatCurrency,
+    activePaletteInfo,
     addToast,
   } = useFinance();
 
@@ -511,8 +512,8 @@ export const FinancialTimeMachinePage: React.FC = () => {
                 <AreaChart data={simulationResults.chartData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
                   <defs>
                     <linearGradient id="simGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.4} />
-                      <stop offset="95%" stopColor="#14b8a6" stopOpacity={0.0} />
+                      <stop offset="5%" stopColor={activePaletteInfo.primary} stopOpacity={0.4} />
+                      <stop offset="95%" stopColor={activePaletteInfo.primary} stopOpacity={0.0} />
                     </linearGradient>
                     <linearGradient id="baseGrad" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#64748b" stopOpacity={0.2} />
@@ -534,7 +535,7 @@ export const FinancialTimeMachinePage: React.FC = () => {
                     type="monotone"
                     dataKey="simulatedWealth"
                     name="Simulated Scenario"
-                    stroke="#14b8a6"
+                    stroke={activePaletteInfo.primary}
                     strokeWidth={2.5}
                     fill="url(#simGrad)"
                   />

@@ -46,11 +46,79 @@ export interface ToastMessage {
   message: string;
 }
 
+export type ColorPalette = 'emerald' | 'violet' | 'sapphire' | 'gold' | 'rose';
+
+export interface PaletteOption {
+  id: ColorPalette;
+  name: string;
+  tagline: string;
+  primary: string;
+  secondary: string;
+  accent: string;
+  gradient: string;
+  previewRing: string;
+}
+
+export const AVAILABLE_PALETTES: PaletteOption[] = [
+  {
+    id: 'emerald',
+    name: 'Cyber Emerald',
+    tagline: 'Classic Mint & Emerald Tech',
+    primary: '#14b8a6',
+    secondary: '#10b981',
+    accent: '#06b6d4',
+    gradient: 'from-teal-500 to-emerald-500',
+    previewRing: 'ring-teal-400',
+  },
+  {
+    id: 'violet',
+    name: 'Electric Violet',
+    tagline: 'Modern Stripe & Linear Fintech',
+    primary: '#8b5cf6',
+    secondary: '#d946ef',
+    accent: '#6366f1',
+    gradient: 'from-violet-500 to-fuchsia-500',
+    previewRing: 'ring-violet-400',
+  },
+  {
+    id: 'sapphire',
+    name: 'Royal Sapphire',
+    tagline: 'High-Trust Institutional Banking',
+    primary: '#3b82f6',
+    secondary: '#0ea5e9',
+    accent: '#06b6d4',
+    gradient: 'from-blue-500 to-sky-500',
+    previewRing: 'ring-blue-400',
+  },
+  {
+    id: 'gold',
+    name: 'Champagne Gold',
+    tagline: 'Ultra-Wealth & Private Banking',
+    primary: '#f59e0b',
+    secondary: '#eab308',
+    accent: '#d97706',
+    gradient: 'from-amber-500 to-yellow-500',
+    previewRing: 'ring-amber-400',
+  },
+  {
+    id: 'rose',
+    name: 'Sunset Coral',
+    tagline: 'Dynamic Neon & Radiant Rose',
+    primary: '#f43f5e',
+    secondary: '#f97316',
+    accent: '#db2777',
+    gradient: 'from-rose-500 to-orange-500',
+    previewRing: 'ring-rose-400',
+  },
+];
 
 interface FinanceContextType {
-  // Theme & Profile
+  // Theme, Palette & Profile
   theme: 'dark' | 'light';
   toggleTheme: () => void;
+  palette: ColorPalette;
+  setPalette: (palette: ColorPalette) => void;
+  activePaletteInfo: PaletteOption;
   user: typeof INITIAL_USER_PROFILE;
   updateUser: (fields: Partial<typeof INITIAL_USER_PROFILE>) => void;
   currency: string;
@@ -152,6 +220,7 @@ const STORAGE_KEYS = {
   NOTIFICATIONS: 'smartfin_notifications',
   USER: 'smartfin_user_profile',
   THEME: 'smartfin_theme',
+  PALETTE: 'smartfin_palette',
   AUTH: 'smartfin_auth_session',
   SMTP: 'smartfin_smtp_config',
 };
@@ -163,6 +232,23 @@ export const FinanceProvider: React.FC<{ children: ReactNode }> = ({ children })
     const saved = localStorage.getItem(STORAGE_KEYS.THEME);
     return saved === 'light' ? 'light' : 'dark';
   });
+
+  // Color Palette state (Defaults to 'violet' for an immediate fresh transform)
+  const [palette, setPaletteState] = useState<ColorPalette>(() => {
+    const saved = localStorage.getItem(STORAGE_KEYS.PALETTE);
+    if (saved && AVAILABLE_PALETTES.some((p) => p.id === saved)) {
+      return saved as ColorPalette;
+    }
+    return 'violet';
+  });
+
+  const activePaletteInfo = AVAILABLE_PALETTES.find((p) => p.id === palette) || AVAILABLE_PALETTES[1];
+
+  const setPalette = (newPalette: ColorPalette) => {
+    setPaletteState(newPalette);
+    const target = AVAILABLE_PALETTES.find((p) => p.id === newPalette);
+    addToast(`Theme palette changed to ${target?.name || newPalette}!`, 'success');
+  };
 
   // User Profile
   const [user, setUser] = useState(() => {
@@ -384,6 +470,16 @@ export const FinanceProvider: React.FC<{ children: ReactNode }> = ({ children })
       document.documentElement.classList.remove('dark');
     }
   }, [theme]);
+
+  // Sync palette to HTML attribute and class
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.PALETTE, palette);
+    document.documentElement.setAttribute('data-palette', palette);
+    AVAILABLE_PALETTES.forEach((p) => {
+      document.documentElement.classList.remove(`palette-${p.id}`);
+    });
+    document.documentElement.classList.add(`palette-${palette}`);
+  }, [palette]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -941,6 +1037,9 @@ export const FinanceProvider: React.FC<{ children: ReactNode }> = ({ children })
       value={{
         theme,
         toggleTheme,
+        palette,
+        setPalette,
+        activePaletteInfo,
         user,
         updateUser,
         currency: user.currency || 'INR',

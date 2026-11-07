@@ -60,6 +60,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
     user,
     currencySymbol,
     formatCurrency,
+    activePaletteInfo,
     totalBalance,
     monthlyIncome,
     monthlyExpenses,
@@ -399,8 +400,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <AreaChart data={historyChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="spendingTrendGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#14b8a6" stopOpacity={0.0} />
+                    <stop offset="5%" stopColor={activePaletteInfo.primary} stopOpacity={0.4} />
+                    <stop offset="95%" stopColor={activePaletteInfo.primary} stopOpacity={0.0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
@@ -430,7 +431,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 <Area
                   type="monotone"
                   dataKey="expenses"
-                  stroke="#14b8a6"
+                  stroke={activePaletteInfo.primary}
                   strokeWidth={3}
                   fillOpacity={1}
                   fill="url(#spendingTrendGrad)"
@@ -484,9 +485,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 />
                 <defs>
                   <linearGradient id="healthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#14b8a6" />
-                    <stop offset="50%" stopColor="#06b6d4" />
-                    <stop offset="100%" stopColor="#8b5cf6" />
+                    <stop offset="0%" stopColor={activePaletteInfo.primary} />
+                    <stop offset="50%" stopColor={activePaletteInfo.secondary} />
+                    <stop offset="100%" stopColor={activePaletteInfo.accent} />
                   </linearGradient>
                 </defs>
               </svg>

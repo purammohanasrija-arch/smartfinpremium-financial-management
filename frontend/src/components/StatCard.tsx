@@ -28,13 +28,13 @@ export const StatCard: React.FC<StatCardProps> = ({
       border: 'border-teal-500/20 hover:border-teal-500/40',
       iconBg: 'bg-teal-500/15 text-teal-400',
       gradient: 'from-teal-500/10 to-transparent',
-      lineColor: '#14b8a6',
+      lineColor: 'var(--color-teal-500, #14b8a6)',
     },
     emerald: {
       border: 'border-emerald-500/20 hover:border-emerald-500/40',
       iconBg: 'bg-emerald-500/15 text-emerald-400',
       gradient: 'from-emerald-500/10 to-transparent',
-      lineColor: '#10b981',
+      lineColor: 'var(--color-emerald-500, #10b981)',
     },
     rose: {
       border: 'border-rose-500/20 hover:border-rose-500/40',

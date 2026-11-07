@@ -22,6 +22,7 @@ import {
 import { useFinance } from '../context/FinanceContext';
 import { mernApi } from '../services/api';
 import { ThemeToggle } from './ThemeToggle';
+import { PaletteSwitcher } from './PaletteSwitcher';
 
 interface LoginViewProps {
   initialMode?: 'login' | 'register';
@@ -276,7 +277,10 @@ export const LoginView: React.FC<LoginViewProps> = ({ initialMode = 'login', onS
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to Cover Page</span>
         </Link>
-        <ThemeToggle />
+        <div className="flex items-center gap-2">
+          <PaletteSwitcher />
+          <ThemeToggle />
+        </div>
       </div>
 
       {/* Main Glassmorphic Auth Container */}

@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { useFinance } from '../context/FinanceContext';
 import { ThemeToggle } from './ThemeToggle';
+import { PaletteSwitcher } from './PaletteSwitcher';
 
 interface TopbarProps {
   onOpenSidebar: () => void;
@@ -120,6 +121,9 @@ export const Topbar: React.FC<TopbarProps> = ({
             <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
             <span>Add Transaction</span>
           </button>
+
+          {/* Color Palette Switcher */}
+          <PaletteSwitcher showLabel />
 
           {/* Theme Toggle */}
           <ThemeToggle />
