@@ -21,7 +21,6 @@
 
 * ⏳ **AI Financial Time Machine & What-If Simulator (`/simulator`)**: Simulate real-life decisions (car purchases, career breaks, habit changes, salary raises) and see their compounding impact 5 to 25 years into the future.
 * 🏛️ **Net Worth & Balance Sheet Hub (`/networth`)**: Track true equity (`Gross Assets − Liabilities`), debt leverage ratios, asset allocation donuts, and financial independence milestones.
-* 🧾 **AI Smart Receipt & Bill OCR Scanner (`/scanner`)**: Drag-and-drop receipt images and invoices for instant scanning, itemized breakdown extraction, and 1-click ledger logging.
 * 💳 **Subscriptions & Recurring Bills Hub (`/subscriptions`)**: Audit recurring SaaS, streaming, and utility run-rates with 1-click pause toggles, due-soon alerts, and waste optimization insights.
 * 🧮 **Financial Tools & Calculators Hub (`/tools`)**: Loan EMI & prepayment optimizer, SIP compound wealth forecaster, emergency runway sentinel, and group bill splitter with WhatsApp export.
 * 📊 **Live Ledger & Category Budgets**: Comprehensive transaction ledger with spending anomaly detection, multi-currency switcher (₹, $, €, £, د.إ), and category thresholds.

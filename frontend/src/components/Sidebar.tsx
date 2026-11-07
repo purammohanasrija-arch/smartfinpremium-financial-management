@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard,
   ArrowLeftRight,
-  Scan,
   Wallet,
   Landmark,
   PieChart,
@@ -40,7 +39,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const navLinks = [
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
     { name: 'Transactions', path: '/transactions', icon: ArrowLeftRight },
-    { name: 'Receipt OCR', path: '/scanner', icon: Scan, badge: 'Scan' },
     { name: 'Accounts', path: '/accounts', icon: Wallet },
     { name: 'Net Worth', path: '/networth', icon: Landmark, badge: 'Wealth' },
     { name: 'Budgets', path: '/budgets', icon: PieChart },

@@ -17,7 +17,6 @@
 4. [Application Modules & Feature Guide](#4-application-modules--feature-guide)
    - [AI Financial Time Machine & What-If Simulator](#41-ai-financial-time-machine--what-if-simulator)
    - [Net Worth & Asset-Liability Balance Sheet](#42-net-worth--asset-liability-balance-sheet)
-   - [AI Smart Receipt & Bill OCR Scanner Studio](#43-ai-smart-receipt--bill-ocr-scanner-studio)
    - [Recurring Subscriptions & Bills Hub](#44-recurring-subscriptions--bills-hub)
    - [Financial Tools & Calculators Hub](#45-financial-tools--calculators-hub)
    - [Core Banking, Budgets & Goals](#46-core-banking-budgets--goals)
@@ -129,21 +128,14 @@ The platform follows a decoupled client-server architecture with an intelligent 
 - **Live Bank Synchronization:** Automatically brings in accounts from `FinanceContext`.
 - **Milestone Freedom Roadmap:** Tracks progression toward ₹10 Lakhs, ₹25 Lakhs, ₹50 Lakhs, and ₹1 Crore milestones with estimated completion dates.
 
-### 4.3. AI Smart Receipt & Bill OCR Scanner Studio (`/scanner`)
-- **Interactive OCR Parser:** Drag-and-drop or upload receipt images and PDF bills with animated scanning laser.
-- **Automated Data Extraction:** Accurately parses Merchant Name, Transaction Date, Subtotal, Taxes, Payment Account, and Itemized line items.
-- **AI Category Mapping:** Automatically categorizes parsed bills into SmartFin+ budget categories with confidence scores (e.g., 99.4% Food & Dining).
-- **1-Click Ledger Commit:** Direct push into live ledger and MongoDB collections without manual typing.
-- **Pre-Loaded Sample Bills:** Includes pre-configured digital receipts (Starbucks, Reliance Fresh, Apple Store, Shell Fuel, Amazon India) for instant zero-file testing.
-
-### 4.4. Recurring Subscriptions & Bills Hub (`/subscriptions`)
+### 4.3. Recurring Subscriptions & Bills Hub (`/subscriptions`)
 - **Monthly Run-Rate Ticker:** Computes total monthly recurring spend across active subscriptions.
 - **Annual Projection:** Forecasts 12-month fixed commitments.
 - **1-Click Pause / Resume:** Toggle plans off without deleting records; instantly displays monthly and annual savings.
 - **Due Soon Alerts:** Highlights bills renewing in the next 10 days with urgent alert badges.
 - **Waste Optimization Audit:** Recommends annual billing discounts and flags overlapping streaming services.
 
-### 4.5. Financial Tools & Calculators Hub (`/tools`)
+### 4.4. Financial Tools & Calculators Hub (`/tools`)
 - **Loan EMI & Prepayment Optimizer:**
   - Computes monthly EMI, total interest, and total cost.
   - Prepayment simulator: Displays how paying +₹5,000/mo cuts years off tenure and saves substantial interest.
@@ -158,7 +150,7 @@ The platform follows a decoupled client-server architecture with an intelligent 
   - Split bills among custom named friends with adjustable tip (0–20%) and tax.
   - One-click copy formatted summary for WhatsApp/Telegram group chats.
 
-### 4.6. Core Banking, Budgets & Goals
+### 4.5. Core Banking, Budgets & Goals
 - **Multi-Account Manager (`/accounts`):** Checking, Savings, Investment, and Digital Wallets.
 - **Budget Thresholds (`/budgets`):** Category-level limits with percentage progress meters.
 - **Milestone Savings Goals (`/goals`):** Goal progress tracking with 1-click account contributions.

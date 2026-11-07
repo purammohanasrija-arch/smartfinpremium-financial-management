@@ -17,7 +17,6 @@ import { AddAccountModal } from './components/modals/AddAccountModal';
 import { LandingPage } from './pages/LandingPage';
 import { Dashboard } from './pages/Dashboard';
 import { TransactionsPage } from './pages/Transactions';
-import { ReceiptScannerPage } from './pages/ReceiptScanner';
 import { AccountsPage } from './pages/Accounts';
 import { BudgetsPage } from './pages/Budgets';
 import { SavingsGoalsPage } from './pages/SavingsGoals';
@@ -134,8 +133,6 @@ const MainLayout: React.FC = () => {
                 />
               }
             />
-            <Route path="scanner" element={<ReceiptScannerPage />} />
-            <Route path="receipts" element={<Navigate to="/scanner" replace />} />
             <Route
               path="accounts"
               element={
