@@ -3,6 +3,10 @@
 > **Enterprise-Grade MERN Stack Financial Intelligence, Multi-Asset Wealth Tracking & AI Decision Platform**
 > 
 > **Repository:** [https://github.com/purammohanasrija-arch/smartfinpremium-financial-management](https://github.com/purammohanasrija-arch/smartfinpremium-financial-management)
+> 
+> **Live Web Application (Vercel):** [https://smartfinpremium-financial-managemen.vercel.app/](https://smartfinpremium-financial-managemen.vercel.app/)
+> 
+> **Live Backend API (Render):** [https://smartfin-backend-5shw.onrender.com/api/health](https://smartfin-backend-5shw.onrender.com/api/health)
 
 ---
 

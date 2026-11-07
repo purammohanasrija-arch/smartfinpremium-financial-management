@@ -10,6 +10,11 @@
 
 > **Next-Generation Personal Wealth Intelligence, Multi-Asset Net Worth Tracking & AI Decision Simulation Platform**
 
+### 🌐 Live Production Deployments
+* 💻 **Live Web App (Vercel):** **[smartfinpremium-financial-managemen.vercel.app](https://smartfinpremium-financial-managemen.vercel.app/)**
+* 🔌 **Live Backend API (Render):** **[smartfin-backend-5shw.onrender.com](https://smartfin-backend-5shw.onrender.com/api/health)**
+* 🍃 **Database:** **MongoDB Atlas Cloud (`smartfin`)**
+
 ---
 
 ## 🌟 What's Inside SmartFin+?
