@@ -105,8 +105,8 @@ export const SettingsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">System Settings</h1>
-          <p className="text-xs text-slate-400">
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">System Settings</h1>
+          <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
             Configure personal profile attributes, display modes, currency, MongoDB database, and export financial data.
           </p>
         </div>
@@ -114,21 +114,21 @@ export const SettingsPage: React.FC = () => {
         <div className="flex items-center gap-2 flex-wrap">
           <a
             href="#currency-switcher"
-            className="px-3 py-1.5 rounded-xl bg-teal-500/15 hover:bg-teal-500/25 border border-teal-500/30 text-teal-300 text-xs font-semibold font-mono flex items-center gap-1.5 transition-all shadow-sm"
+            className="px-3 py-1.5 rounded-xl bg-teal-100 hover:bg-teal-200 border border-teal-300 text-teal-800 dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:border-teal-500/30 dark:text-teal-300 text-xs font-bold font-mono flex items-center gap-1.5 transition-all shadow-sm"
           >
             <Coins className="w-3.5 h-3.5" />
             <span>Currency ({user.currency || 'INR'} {user.currencySymbol || '₹'})</span>
           </a>
           <a
             href="#export-data"
-            className="px-3 py-1.5 rounded-xl bg-indigo-500/15 hover:bg-indigo-500/25 border border-indigo-500/30 text-indigo-300 text-xs font-semibold font-mono flex items-center gap-1.5 transition-all shadow-sm"
+            className="px-3 py-1.5 rounded-xl bg-indigo-100 hover:bg-indigo-200 border border-indigo-300 text-indigo-800 dark:bg-indigo-500/15 dark:hover:bg-indigo-500/25 dark:border-indigo-500/30 dark:text-indigo-300 text-xs font-bold font-mono flex items-center gap-1.5 transition-all shadow-sm"
           >
             <FileSpreadsheet className="w-3.5 h-3.5" />
             <span>Export CSV</span>
           </a>
           <a
             href="#mern"
-            className="px-3 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 text-xs font-semibold font-mono flex items-center gap-1.5 transition-all shadow-sm"
+            className="px-3 py-1.5 rounded-xl bg-emerald-100 hover:bg-emerald-200 border border-emerald-300 text-emerald-800 dark:bg-emerald-500/15 dark:hover:bg-emerald-500/25 dark:border-emerald-500/30 dark:text-emerald-300 text-xs font-bold font-mono flex items-center gap-1.5 transition-all shadow-sm"
           >
             <Database className="w-3.5 h-3.5" />
             <span>MongoDB Atlas</span>
@@ -155,20 +155,20 @@ export const SettingsPage: React.FC = () => {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="text-lg font-bold text-white">{user.name}</h2>
-              <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30">
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{user.name}</h2>
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-500/20 text-teal-800 dark:text-teal-300 border border-teal-300 dark:border-teal-500/30">
                 {user.plan}
               </span>
             </div>
-            <p className="text-xs text-slate-400">{user.email}</p>
-            <p className="text-[11px] text-slate-500 mt-0.5">
+            <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">{user.email}</p>
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">
               Member since: {user.memberSince} • 256-bit AES Authenticated
             </p>
           </div>
         </div>
 
         <form onSubmit={handleSaveProfile} className="space-y-4">
-          <h3 className="text-sm font-semibold text-white">Edit Profile Details</h3>
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white">Edit Profile Details</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1">Full Name</label>
@@ -256,68 +256,68 @@ export const SettingsPage: React.FC = () => {
 
         {/* Cluster Diagnostics & MERN Topology Strip */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
-          <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
-            <div className="flex items-center justify-between text-slate-400">
-              <span className="text-[10px] uppercase font-bold text-emerald-400">Active Database</span>
-              <Cloud className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-1 shadow-sm">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+              <span className="text-[10px] uppercase font-bold text-emerald-700 dark:text-emerald-400">Active Database</span>
+              <Cloud className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             </div>
-            <div className="text-sm font-extrabold text-white truncate">
+            <div className="text-sm font-extrabold text-slate-900 dark:text-white truncate">
               {isAtlasConnected || dbEngine === 'mongodb_atlas' ? 'MongoDB Atlas' : 'Local BSON Engine'}
             </div>
-            <span className="text-[10px] text-slate-400 block truncate">
+            <span className="text-[10px] text-slate-600 dark:text-slate-400 block truncate font-medium">
               {atlasDetails?.clusterHost || 'Database: smartfin'}
             </span>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
-            <div className="flex items-center justify-between text-slate-400">
-              <span className="text-[10px] uppercase font-bold text-teal-400">Latency & Encryption</span>
-              <Lock className="w-3.5 h-3.5 text-teal-400" />
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-1 shadow-sm">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+              <span className="text-[10px] uppercase font-bold text-teal-700 dark:text-teal-400">Latency & Encryption</span>
+              <Lock className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
             </div>
-            <div className="text-sm font-extrabold text-white">
+            <div className="text-sm font-extrabold text-slate-900 dark:text-white">
               {atlasDetails?.pingMs ? `${atlasDetails.pingMs} ms` : 'Local < 1 ms'}
             </div>
-            <span className="text-[10px] text-teal-300/80 block">
+            <span className="text-[10px] text-teal-700 dark:text-teal-300 block font-medium">
               TLS 1.3 SSL Encrypted Socket
             </span>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
-            <div className="flex items-center justify-between text-slate-400">
-              <span className="text-[10px] uppercase font-bold text-indigo-400">Node/Express Server</span>
-              <Server className="w-3.5 h-3.5 text-indigo-400" />
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-1 shadow-sm">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+              <span className="text-[10px] uppercase font-bold text-indigo-700 dark:text-indigo-400">Node/Express Server</span>
+              <Server className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
             </div>
-            <div className="text-sm font-extrabold text-white truncate">
+            <div className="text-sm font-extrabold text-slate-900 dark:text-white truncate">
               Express v{mernStackInfo?.technologies?.express?.version || '4.21.2'}
             </div>
-            <span className="text-[10px] text-slate-400 block">
+            <span className="text-[10px] text-slate-600 dark:text-slate-400 block font-medium">
               Driver: mongodb v7.8.0
             </span>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
-            <div className="flex items-center justify-between text-slate-400">
-              <span className="text-[10px] uppercase font-bold text-cyan-400">React Client</span>
-              <Layers className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-1 shadow-sm">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+              <span className="text-[10px] uppercase font-bold text-cyan-700 dark:text-cyan-400">React Client</span>
+              <Layers className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
             </div>
-            <div className="text-sm font-extrabold text-white truncate">
+            <div className="text-sm font-extrabold text-slate-900 dark:text-white truncate">
               React 19 + Vite SPA
             </div>
-            <span className="text-[10px] text-slate-400 block">
+            <span className="text-[10px] text-slate-600 dark:text-slate-400 block font-medium">
               Active User: {user.name}
             </span>
           </div>
         </div>
 
         {/* MongoDB Document Collections Counter */}
-        <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2.5">
+        <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-2.5 shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-200 flex items-center gap-1.5">
-              <Database className="w-3.5 h-3.5 text-emerald-400" /> Live MongoDB Collections in Database{' '}
-              <span className="text-emerald-400 font-mono">`smartfin`</span>
+            <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <Database className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Live MongoDB Collections in Database{' '}
+              <span className="text-emerald-700 dark:text-emerald-400 font-mono font-bold">`smartfin`</span>
             </span>
-            <span className="text-[11px] font-mono text-slate-400">
-              Active Storage: <strong className="text-emerald-300">{isAtlasConnected ? 'Atlas Cloud' : 'Embedded Local'}</strong>
+            <span className="text-[11px] font-mono text-slate-600 dark:text-slate-400 font-medium">
+              Active Storage: <strong className="text-emerald-700 dark:text-emerald-300 font-bold">{isAtlasConnected ? 'Atlas Cloud' : 'Embedded Local'}</strong>
             </span>
           </div>
 
@@ -333,23 +333,23 @@ export const SettingsPage: React.FC = () => {
                   users: 1,
                 }
             ).map(([colName, count]) => (
-              <div key={colName} className="p-2.5 rounded-lg bg-slate-900/90 border border-slate-800 text-center hover:border-emerald-500/40 transition-colors">
-                <span className="text-[10px] text-slate-400 uppercase block truncate">{colName}</span>
-                <span className="text-base font-bold text-emerald-400">{count}</span>
-                <span className="text-[9px] text-slate-500 block">documents</span>
+              <div key={colName} className="p-2.5 rounded-lg bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-center hover:border-emerald-500/40 transition-colors shadow-sm">
+                <span className="text-[10px] text-slate-600 dark:text-slate-400 uppercase font-bold block truncate">{colName}</span>
+                <span className="text-base font-extrabold text-emerald-700 dark:text-emerald-400">{count}</span>
+                <span className="text-[9px] text-slate-500 dark:text-slate-400 font-medium block">documents</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Interactive MongoDB Atlas URI Connection Input */}
-        <div className="p-5 rounded-xl bg-slate-950/80 border border-emerald-500/30 space-y-4">
+        <div className="p-5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-emerald-300 dark:border-emerald-500/30 space-y-4 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
-              <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                <Cloud className="w-4 h-4 text-emerald-400" /> Connect Remote MongoDB Atlas Cluster
+              <span className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                <Cloud className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Connect Remote MongoDB Atlas Cluster
               </span>
-              <p className="text-[11px] text-slate-400 mt-0.5">
+              <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 font-medium">
                 Enter your MongoDB Atlas SRV URI (<span className="text-emerald-300 font-mono">mongodb+srv://...</span>) to link your cloud cluster.
               </p>
             </div>
@@ -373,7 +373,7 @@ export const SettingsPage: React.FC = () => {
               placeholder="mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/smartfin?retryWrites=true&w=majority"
               value={customMongoUri}
               onChange={(e) => setCustomMongoUri(e.target.value)}
-              className="flex-1 bg-slate-900 border border-slate-800 focus:border-emerald-500/80 rounded-xl px-3.5 py-2.5 text-xs font-mono text-slate-100 placeholder-slate-600 focus:outline-none transition-all shadow-inner"
+              className="flex-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-xs font-mono font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition-all shadow-inner"
             />
 
             {/* Test Ping Button */}

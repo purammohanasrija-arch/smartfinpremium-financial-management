@@ -82,11 +82,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-xl tracking-tight text-white font-sans">
-                    SmartFin<span className="text-teal-400">+</span>
+                  <span className="font-extrabold text-xl tracking-tight text-slate-900 dark:text-white font-sans">
+                    SmartFin<span className="text-teal-600 dark:text-teal-400">+</span>
                   </span>
                 </div>
-                <span className="text-[11px] font-medium text-slate-400 tracking-wider uppercase">
+                <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400 tracking-wider uppercase">
                   Financial Intelligence
                 </span>
               </div>
@@ -113,8 +113,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   className={({ isActive }) =>
                     `flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all group ${
                       isActive
-                        ? 'bg-gradient-to-r from-teal-500/15 to-indigo-500/10 text-teal-300 border border-teal-500/30 shadow-sm shadow-teal-500/10 font-semibold'
-                        : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
+                        ? 'bg-teal-50 dark:bg-gradient-to-r dark:from-teal-500/15 dark:to-indigo-500/10 text-teal-800 dark:text-teal-300 border border-teal-300 dark:border-teal-500/30 shadow-sm font-bold'
+                        : 'text-slate-700 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50 font-medium'
                     }`
                   }
                 >
@@ -124,8 +124,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                         <Icon
                           className={`w-4 h-4 transition-colors ${
                             isActive
-                              ? 'text-teal-400'
-                              : 'text-slate-400 group-hover:text-slate-200'
+                              ? 'text-teal-600 dark:text-teal-400'
+                              : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200'
                           }`}
                         />
                         <span>{item.name}</span>
@@ -133,7 +133,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
                       <div className="flex items-center gap-2">
                         {item.badge && (
-                          <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                          <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-teal-100 dark:bg-teal-500/20 text-teal-800 dark:text-teal-300 border border-teal-300 dark:border-teal-500/30">
                             {item.badge}
                           </span>
                         )}
@@ -151,36 +151,36 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </nav>
 
           {/* Premium Membership Card */}
-          <div className="mt-6 mb-4 p-4 rounded-2xl bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-indigo-950/40 border border-teal-500/20 relative overflow-hidden group shadow-lg">
+          <div className="mt-6 mb-4 p-4 rounded-2xl bg-teal-50/70 dark:bg-gradient-to-br dark:from-slate-900/90 dark:via-slate-900/60 dark:to-indigo-950/40 border border-teal-300 dark:border-teal-500/20 relative overflow-hidden group shadow-sm dark:shadow-lg">
             <div className="absolute top-0 right-0 -mr-6 -mt-6 w-20 h-20 bg-teal-500/10 rounded-full blur-xl pointer-events-none" />
             <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-teal-400">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-teal-800 dark:text-teal-400">
                 <Crown className="w-3.5 h-3.5" />
                 <span>{user.plan}</span>
               </div>
-              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30">
+              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-500/20 text-teal-800 dark:text-teal-300 border border-teal-300 dark:border-teal-500/30">
                 Active
               </span>
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed mb-3">
+            <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed mb-3 font-medium">
               Unlimited automated spending audits & zero wire fees enabled.
             </p>
-            <div className="flex items-center justify-between text-[11px] font-medium text-slate-400 pt-2 border-t border-slate-800">
+            <div className="flex items-center justify-between text-[11px] font-medium text-slate-600 dark:text-slate-400 pt-2 border-t border-slate-200 dark:border-slate-800">
               <span className="flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> 256-Bit Encrypted
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> 256-Bit Encrypted
               </span>
-              <span className="text-teal-400/90 flex items-center group-hover:translate-x-0.5 transition-transform">
+              <span className="text-teal-800 dark:text-teal-400/90 font-semibold flex items-center group-hover:translate-x-0.5 transition-transform">
                 VIP Club <ChevronRight className="w-3 h-3 ml-0.5" />
               </span>
             </div>
           </div>
 
           {/* User Profile Card at Sidebar Footer */}
-          <div className="mt-auto pt-3 border-t border-slate-800/80">
+          <div className="mt-auto pt-3 border-t border-slate-200 dark:border-slate-800/80">
             <NavLink
               to="/settings"
               onClick={onClose}
-              className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-800/60 transition-colors group"
+              className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors group"
             >
               <div className="relative">
                 <img
@@ -196,22 +196,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               </div>
               <div className="flex flex-col min-w-0 flex-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-white truncate font-sans">
+                  <span className="text-sm font-bold text-slate-900 dark:text-white truncate font-sans">
                     {user.name}
                   </span>
-                  <span className="text-[10px] text-teal-400 font-medium font-mono px-1.5 py-0.5 rounded bg-teal-500/15 border border-teal-500/25">
+                  <span className="text-[10px] text-teal-800 dark:text-teal-400 font-bold font-mono px-1.5 py-0.5 rounded bg-teal-100 dark:bg-teal-500/15 border border-teal-300 dark:border-teal-500/25">
                     {user.currency || 'INR'} {user.currencySymbol || '₹'}
                   </span>
                 </div>
-                <span className="text-xs text-slate-400 truncate">
+                <span className="text-xs text-slate-600 dark:text-slate-400 truncate font-medium">
                   {user.title}
                 </span>
               </div>
             </NavLink>
 
             {/* Switch Gateway / Logout Action */}
-            <div className="flex items-center justify-between px-2 pt-2 mt-1 border-t border-slate-850 text-xs">
-              <span className="text-[11px] text-slate-500 font-mono flex items-center gap-1">
+            <div className="flex items-center justify-between px-2 pt-2 mt-1 border-t border-slate-200 dark:border-slate-800 text-xs">
+              <span className="text-[11px] text-slate-600 dark:text-slate-400 font-mono font-medium flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
                 {authMethod === 'smtp' ? 'SMTP Authenticated' : 'Active Session'}
               </span>
@@ -221,7 +221,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   onClose();
                   logout();
                 }}
-                className="text-[11px] text-slate-400 hover:text-rose-400 font-medium flex items-center gap-1 transition-colors p-1"
+                className="text-[11px] text-slate-600 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 font-semibold flex items-center gap-1 transition-colors p-1"
                 title="Sign out or switch to SMTP Login"
               >
                 <LogOut className="w-3 h-3" />
@@ -230,13 +230,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* MERN Stack Architecture Status */}
-            <div className="mt-2 pt-2 border-t border-slate-800/80 px-2 flex items-center justify-between text-[11px] font-mono">
-              <span className="flex items-center gap-1.5 text-slate-400">
+            <div className="mt-2 pt-2 border-t border-slate-200 dark:border-slate-800/80 px-2 flex items-center justify-between text-[11px] font-mono">
+              <span className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-emerald-400 font-bold">MERN</span>
                 <span className="text-[10px] text-slate-500">Stack</span>
               </span>
-              <span className="text-[10px] text-emerald-400/90 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded font-mono">
+              <span className="text-[10px] text-emerald-800 dark:text-emerald-400/90 bg-emerald-100 dark:bg-emerald-500/10 border border-emerald-300 dark:border-emerald-500/20 px-1.5 py-0.5 rounded font-mono font-bold">
                 {dbEngine === 'mongodb_atlas' ? 'MongoDB Atlas' : 'Mongo + Express'}
               </span>
             </div>

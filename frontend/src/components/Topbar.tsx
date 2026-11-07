@@ -56,13 +56,13 @@ export const Topbar: React.FC<TopbarProps> = ({
           </button>
 
           <div className="relative w-full">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-slate-500 dark:text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               placeholder="Search merchants, categories, or notes..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-900/80 dark:bg-slate-900/80 border border-slate-800 hover:border-slate-700 focus:border-teal-500/60 rounded-xl pl-10 pr-9 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none transition-all shadow-inner"
+              className="w-full bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 focus:border-teal-500 rounded-xl pl-10 pr-9 py-2 text-sm text-slate-900 dark:text-slate-200 placeholder-slate-500 focus:outline-none transition-all shadow-inner font-medium"
             />
             {searchQuery && (
               <button
@@ -81,14 +81,14 @@ export const Topbar: React.FC<TopbarProps> = ({
           {/* Active Global Currency Badge */}
           <NavLink
             to="/settings"
-            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-900/90 border border-teal-500/35 hover:border-teal-400 text-slate-300 text-xs font-mono transition-all group shadow-sm hover:shadow-teal-500/15"
+            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-300 dark:border-teal-500/35 hover:border-teal-500 text-slate-800 dark:text-slate-300 text-xs font-mono transition-all group shadow-sm"
             title={`Active Global Currency: ${activeCurrency?.name || 'Indian Rupee'} (${activeCurrency?.code || 'INR'}) — Click to open Currency Switcher`}
           >
             <span className="text-xs">{activeCurrency?.flag || '🇮🇳'}</span>
-            <span className="font-bold text-teal-400 tracking-wider">
+            <span className="font-bold text-teal-700 dark:text-teal-400 tracking-wider">
               {activeCurrency?.code || 'INR'}
             </span>
-            <span className="text-[10px] text-teal-300 font-extrabold px-1 rounded bg-teal-500/20">
+            <span className="text-[10px] text-teal-800 dark:text-teal-300 font-extrabold px-1.5 py-0.5 rounded bg-teal-100 dark:bg-teal-500/20">
               {currencySymbol}
             </span>
           </NavLink>
@@ -96,18 +96,18 @@ export const Topbar: React.FC<TopbarProps> = ({
           {/* MongoDB Atlas Cloud Live Status Badge */}
           <NavLink
             to="/settings"
-            className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-900/90 border border-emerald-500/35 hover:border-emerald-400 text-slate-300 text-xs font-mono transition-all group shadow-sm hover:shadow-emerald-500/15"
+            className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-300 dark:border-emerald-500/35 hover:border-emerald-500 text-slate-800 dark:text-slate-300 text-xs font-mono transition-all group shadow-sm"
             title={
               isAtlasConnected
                 ? `Connected to MongoDB Atlas: ${atlasDetails?.clusterHost || 'Cloud Cluster'} (${atlasDetails?.pingMs || 0}ms)`
                 : 'MongoDB: Local BSON Engine Active — Click to Connect MongoDB Atlas'
             }
           >
-            <span className={`w-2 h-2 rounded-full ${isAtlasConnected ? 'bg-emerald-400 animate-pulse' : 'bg-teal-400'}`} />
-            <span className="font-bold text-emerald-400 tracking-wider">
+            <span className={`w-2 h-2 rounded-full ${isAtlasConnected ? 'bg-emerald-500 animate-pulse' : 'bg-teal-500'}`} />
+            <span className="font-bold text-emerald-700 dark:text-emerald-400 tracking-wider">
               {isAtlasConnected ? '🍃 Atlas Cloud' : '🍃 MongoDB'}
             </span>
-            <span className="text-[10px] text-slate-400 hidden xl:inline">
+            <span className="text-[10px] text-slate-600 dark:text-slate-400 font-medium hidden xl:inline">
               {isAtlasConnected && atlasDetails?.pingMs ? `${atlasDetails.pingMs}ms` : 'Database'}
             </span>
           </NavLink>
@@ -128,7 +128,7 @@ export const Topbar: React.FC<TopbarProps> = ({
           <div className="relative">
             <button
               onClick={() => setShowNotifDropdown(!showNotifDropdown)}
-              className="relative p-2 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition-all"
+              className="relative p-2 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm"
               aria-label="View notifications"
             >
               <Bell className="w-4 h-4" />
@@ -265,16 +265,16 @@ export const Topbar: React.FC<TopbarProps> = ({
       </div>
 
       {/* Scenic Gradient Banner */}
-      <div className="relative px-4 sm:px-6 lg:px-8 py-3 bg-gradient-to-r from-teal-500/10 via-indigo-500/10 to-purple-500/10 dark:from-teal-950/40 dark:via-indigo-950/30 dark:to-purple-950/20 border-t border-slate-200 dark:border-slate-800/60 overflow-hidden">
+      <div className="relative px-4 sm:px-6 lg:px-8 py-3 bg-gradient-to-r from-teal-500/15 via-indigo-500/15 to-purple-500/15 dark:from-teal-950/40 dark:via-indigo-950/30 dark:to-purple-950/20 border-t border-slate-200 dark:border-slate-800/60 overflow-hidden">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 relative z-10">
 
           <div className="flex items-center gap-2.5">
             <span className="text-base sm:text-lg">🌸</span>
             <div>
-              <h2 className="text-sm font-semibold text-white tracking-tight">
+              <h2 className="text-sm font-bold text-slate-900 dark:text-white tracking-tight">
                 Good Morning, {user.name}!
               </h2>
-              <p className="text-xs text-teal-300/80 italic font-medium">
+              <p className="text-xs text-teal-800 dark:text-teal-300 font-semibold italic">
                 “Small steps today lead to big financial freedom tomorrow.”
               </p>
             </div>
@@ -284,30 +284,30 @@ export const Topbar: React.FC<TopbarProps> = ({
           <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
             <button
               onClick={onOpenAddTransaction}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-100 hover:bg-teal-200 text-teal-900 border border-teal-300 dark:bg-teal-500/10 dark:hover:bg-teal-500/20 dark:text-teal-300 dark:border-teal-500/30 text-xs font-bold transition-all shadow-sm"
             >
-              <Plus className="w-3 h-3" />
+              <Plus className="w-3 h-3 stroke-[2.5]" />
               <span>Add Transaction</span>
             </button>
             <button
               onClick={onOpenSetBudget}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-100 hover:bg-indigo-200 text-indigo-900 border border-indigo-300 dark:bg-indigo-500/10 dark:hover:bg-indigo-500/20 dark:text-indigo-300 dark:border-indigo-500/30 text-xs font-bold transition-all shadow-sm"
             >
-              <SlidersHorizontal className="w-3 h-3" />
+              <SlidersHorizontal className="w-3 h-3 stroke-[2.5]" />
               <span>Set Budget</span>
             </button>
             <button
               onClick={onOpenAddGoal}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-100 hover:bg-cyan-200 text-cyan-900 border border-cyan-300 dark:bg-cyan-500/10 dark:hover:bg-cyan-500/20 dark:text-cyan-300 dark:border-cyan-500/30 text-xs font-bold transition-all shadow-sm"
             >
-              <Target className="w-3 h-3" />
+              <Target className="w-3 h-3 stroke-[2.5]" />
               <span>Add Goal</span>
             </button>
             <button
               onClick={onOpenTransfer}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-100 hover:bg-purple-200 text-purple-900 border border-purple-300 dark:bg-purple-500/10 dark:hover:bg-purple-500/20 dark:text-purple-300 dark:border-purple-500/30 text-xs font-bold transition-all shadow-sm"
             >
-              <ArrowRightLeft className="w-3 h-3" />
+              <ArrowRightLeft className="w-3 h-3 stroke-[2.5]" />
               <span>Transfer Money</span>
             </button>
           </div>
